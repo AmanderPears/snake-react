@@ -216,9 +216,14 @@ export default class SnakeGame extends Component {
     render() {
         return (
             <div>
-                <button id="startPause">Start</button>
-                <hr></hr>
-                <div id="stage" style={this.state}></div>
+                <div className="card">
+                    <div className="card-body">
+                        <div className="card-title">
+                            <button id="startPause" className="btn btn-secondary">Start</button>
+                        </div>
+                        <div id="stage" style={this.state}></div>
+                    </div>
+                </div>
             </div>
         );
     }
