@@ -13,7 +13,7 @@ export default class extends Component {
     }
 
     fetchData() {
-        fetch('http://ajpears-leaderboards.herokuapp.com/players')
+        fetch('https://ajpears-leaderboards.herokuapp.com/players')
             .then(response => response.json())
             .then(data => {
 
@@ -49,7 +49,7 @@ export default class extends Component {
             // let temp = this.state.list;
             // temp.push(elem);
 
-            fetch('http://ajpears-leaderboards.herokuapp.com/players', {
+            fetch('https://ajpears-leaderboards.herokuapp.com/players', {
                 method: 'post',
                 headers: {
                     "Content-type": "application/json"
@@ -57,7 +57,7 @@ export default class extends Component {
                 body: JSON.stringify(elem)
             });
         } else {
-            fetch('http://ajpears-leaderboards.herokuapp.com/player/' + elem.playerName, {
+            fetch('https://ajpears-leaderboards.herokuapp.com/player/' + elem.playerName, {
                 method: 'put',
                 headers: {
                     "Content-type": "application/json"
