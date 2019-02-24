@@ -3,6 +3,7 @@ import './App.css';
 import SnakeGame from './SnakeGame';
 import Navbar from './Navbar';
 import Description from './Description';
+import LeaderBoards from './LeaderBoards';
 
 class App extends Component {
   render() {
@@ -15,8 +16,16 @@ class App extends Component {
             <div className="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
               <SnakeGame />
             </div>
-            <div className="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
-              <Description />
+
+            <div className="container col-12 col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+              <div className="row">
+                <LeaderBoards />
+              </div>
+              <br />
+              <div className="row">
+                <Description />
+              </div>
+
             </div>
 
           </div>

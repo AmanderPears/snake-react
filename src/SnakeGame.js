@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 const cellWH = 25;
 const gameWH = 500;
+var mainDiv = {
+    width: 500 + "px"
+}
 
 export default class SnakeGame extends Component {
     constructor(props) {
@@ -17,6 +20,10 @@ export default class SnakeGame extends Component {
     }
 
     componentDidMount() {
+        //score variables
+        var score = 0,
+            scoreElement = document.getElementById('playerScore');
+
         var prey;
         var snake;
         var timer;
@@ -44,9 +51,9 @@ export default class SnakeGame extends Component {
                 }
             }
 
-            if (e.keyCode === 80) {
-                pause();
-            }
+            // if (e.keyCode === 80) {
+            //     pause();
+            // }
         };
 
         //main component
@@ -125,6 +132,10 @@ export default class SnakeGame extends Component {
             if (prey.x === snake[0].x && prey.y === snake[0].y) {
                 snake.push(new Cell(prey.x, prey.y, prey.cellDivStyle.background));
                 prey = new Cell(randVal(), randVal(), 'darkolivegreen');
+
+                //update scroe
+                score++;
+                scoreElement.innerText = score;
             } else {
                 var temp = snake.slice(1);
 
@@ -209,22 +220,26 @@ export default class SnakeGame extends Component {
                 document.getElementById('stage')
             );
             allCells = 0;
+
         } //let timer = setInterval(run, 150);
 
     }
 
     render() {
         return (
-            <div>
-                <div className="card">
-                    <div className="card-body">
-                        <div className="card-title">
-                            <button id="startPause" className="btn btn-secondary">Start</button>
-                        </div>
-                        <div id="stage" style={this.state}></div>
+            <div className="container" style={mainDiv}>
+                <div className="row">
+                    <div>
+                        <button id="startPause" className="btn btn-secondary">Start</button>
                     </div>
                 </div>
-            </div>
+
+                <br />
+
+                <div className="row">
+                    <div id="stage" style={this.state}></div>
+                </div>
+            </ div >
         );
     }
 }
